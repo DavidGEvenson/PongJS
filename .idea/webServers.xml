@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="e4977e9d-d236-4d8e-b457-b9e41fb5e5ad" name="pong" url="http://cse.msu.edu/~evenson6/pong">
+        <fileTransfer host="black.cse.msu.edu" port="22" rootFolder="/user/evenson6/web/pong" accessType="SFTP">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" />
+          </advancedOptions>
+          <option name="port" value="22" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
