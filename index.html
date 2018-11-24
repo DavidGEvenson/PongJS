@@ -6,9 +6,19 @@
     <title>Pong Project</title>
     <link href="pong.css" rel="stylesheet" type="text/css" />
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="site.con.js"></script>
+    <script>
+        $(document).ready(function() {
+            new Game();
+        });
+    </script>
 </head>
 <body>
     <h1>PONG!</h1>
-    <div id="gamespace"></div>
+    <div id="gamespace">
+        <div class="paddle" id="paddleL"></div>
+        <div class="paddle" id="paddleR"></div>
+        <div class="ball"></div>
+    </div>
 </body>
 </html>

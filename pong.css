@@ -11,7 +11,7 @@ figure, figcaption, h1, h2, h3, ul, li, body, div, p, img {
 }
 
 body {
-    background: white;
+    background-color: white;
 }
 
 h1 {
@@ -22,9 +22,39 @@ h1 {
 }
 
 #gamespace {
-    background: black;
+    position: relative;
+    background-color: black;
     margin: auto;
     margin-top: 20px;
-    width: 1200px;
-    height: 600px;
+    width: 1000px;
+    height: 500px;
+}
+
+.paddle {
+    position: relative;
+    width: 15px;
+    height: 100px;
+    top: 200px;
+    background-color: white;
+}
+
+#paddleL {
+    float: left;
+    left: 20px;
+}
+
+#paddleR {
+    float: right;
+    right: 20px;
+
+}
+
+.ball {
+    position: relative;
+    background-color: white;
+    left: 490px;
+    top: 240px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
 }
