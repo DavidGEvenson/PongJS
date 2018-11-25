@@ -24,8 +24,7 @@ h1 {
 #gamespace {
     position: relative;
     background-color: black;
-    margin: auto;
-    margin-top: 20px;
+    margin: 20px auto;
     width: 1000px;
     height: 500px;
 }

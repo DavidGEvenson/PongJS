@@ -1,22 +1,44 @@
+var windowHeight = 500;
+var windowWidth = 1000;
+
 function Game() {
-    var leftPaddle = Paddle("paddleL");
-    var rightPaddle = Paddle("paddleR");
-    var ball = Ball();
+    var that = this;
 
-    $(document).on('keypress', function (ev) {
-        console.log(ev);
+    var leftPaddle = new Paddle("paddleL");
+    var rightPaddle = new Paddle("paddleR");
 
+    var ball = new Ball("ball1");
+
+    //this.startGame(ball);
+
+    $(document).on('keydown', function (ev) {
+        var speed = 15;
         if(ev.key === "q") {
-            leftPaddle.move(-10);
+            leftPaddle.move(-speed);
+        }
+        else if(ev.key === "a") {
+            leftPaddle.move(speed);
+        }
+        else if(ev.key === "p") {
+            rightPaddle.move(-speed);
+        }
+        else if(ev.key === "l") {
+            rightPaddle.move(speed);
+        }
+        else if(ev.key === " ") {
+            //console.log(ball);
+            setInterval(function() {
+                ball.begin();
+            }, 20);
         }
     });
+
+    //setInterval(ball.run(), 100);
 }
 
 /*
-$(document).on('keypress', function (ev) {
-    console.log(ev);
-    if(ev.key === "q") {
-        this.leftPaddle.move(-10);
-    }
-});
+Game.prototype.startGame = function() {
+    this.ball.begin();
+    //var running = setInterval(this.ball.begin, 100);
+};
 */
