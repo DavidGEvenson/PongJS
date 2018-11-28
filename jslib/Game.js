@@ -7,9 +7,11 @@ function Game() {
     var leftPaddle = new Paddle("paddleL");
     var rightPaddle = new Paddle("paddleR");
 
-    var ball = new Ball("ball1");
+    this.pOneScore = 0;
+    this.pTwoScore = 0;
 
-    //this.startGame(ball);
+    this.ball = new Ball("ball1");
+    this.running = false;
 
     $(document).on('keydown', function (ev) {
         var speed = 15;
@@ -25,20 +27,28 @@ function Game() {
         else if(ev.key === "l") {
             rightPaddle.move(speed);
         }
-        else if(ev.key === " ") {
-            //console.log(ball);
-            setInterval(function() {
-                ball.begin();
+        else if(ev.key === " " && !that.running) {
+            that.interval = setInterval(function() {
+                that.ball.begin(leftPaddle.getPos(), rightPaddle.getPos(), that);
             }, 20);
+            that.running = true;
         }
     });
-
-    //setInterval(ball.run(), 100);
 }
 
-/*
-Game.prototype.startGame = function() {
-    this.ball.begin();
-    //var running = setInterval(this.ball.begin, 100);
+Game.prototype.points = function (player) {
+    if(player === 1) {
+        this.pOneScore++;
+        document.getElementById("pOneScore").innerHTML = this.pOneScore.toString();
+    } else if(player === 2) {
+        this.pTwoScore++;
+        document.getElementById("pTwoScore").innerHTML = this.pTwoScore.toString();
+    }
 };
-*/
+
+Game.prototype.stop = function () {
+    clearInterval(this.interval);
+    this.ball.reset();
+    
+    this.running = false;
+};

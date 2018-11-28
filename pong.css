@@ -57,3 +57,16 @@ h1 {
     height: 20px;
     border-radius: 50%;
 }
+
+.scoreboard {
+    text-align: center;
+    width: 100%;
+}
+
+.scoreboard p {
+    width: 20px;
+    margin: 10px 200px;
+    font-size: 30px;
+    font-family: sans-serif;
+    display: inline;
+}
