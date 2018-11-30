@@ -4,8 +4,8 @@ var windowWidth = 1000;
 function Game() {
     var that = this;
 
-    var leftPaddle = new Paddle("paddleL");
-    var rightPaddle = new Paddle("paddleR");
+    this.leftPaddle = new Paddle("paddleL");
+    this.rightPaddle = new Paddle("paddleR");
 
     this.pOneScore = 0;
     this.pTwoScore = 0;
@@ -14,22 +14,21 @@ function Game() {
     this.running = false;
 
     $(document).on('keydown', function (ev) {
-        var speed = 15;
         if(ev.key === "q") {
-            leftPaddle.move(-speed);
+            that.leftPaddle.move(-1);
         }
         else if(ev.key === "a") {
-            leftPaddle.move(speed);
+            that.leftPaddle.move(1);
         }
         else if(ev.key === "p") {
-            rightPaddle.move(-speed);
+            that.rightPaddle.move(-1);
         }
         else if(ev.key === "l") {
-            rightPaddle.move(speed);
+            that.rightPaddle.move(1);
         }
         else if(ev.key === " " && !that.running) {
             that.interval = setInterval(function() {
-                that.ball.begin(leftPaddle.getPos(), rightPaddle.getPos(), that);
+                that.ball.begin(that.leftPaddle.getPos(), that.rightPaddle.getPos(), that);
             }, 20);
             that.running = true;
         }
@@ -49,6 +48,7 @@ Game.prototype.points = function (player) {
 Game.prototype.stop = function () {
     clearInterval(this.interval);
     this.ball.reset();
-    
+    this.leftPaddle.resetPos();
+    this.rightPaddle.resetPos();
     this.running = false;
 };
